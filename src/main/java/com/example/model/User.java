@@ -12,5 +12,5 @@ public class User {
     private  String name;
     private  int age;
 
-    // Constructors, getters, aand setters
+    // Constructors, geetter, setters
 }
