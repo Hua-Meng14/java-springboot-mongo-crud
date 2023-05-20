@@ -8,6 +8,7 @@ public class MongoCrudApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(MongoCrudApplication.class, args);
+        System.out.println("Server started");
     }
 
 }

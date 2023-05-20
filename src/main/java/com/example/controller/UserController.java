@@ -2,7 +2,6 @@ package com.example.controller;
 
 import com.example.model.User;
 import com.example.service.UserService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +11,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/")
 public class UserController {
     private final UserService userService;
 
@@ -34,14 +33,14 @@ public class UserController {
     @PutMapping("/(id)")
     public ResponseEntity<User> updateUser(@PathVariable String id, @RequestBody User user) {
         try{
-            User updatedUseer = userService.updateUser(user);
-            return new ResponseEntity<>(updatedUseer,HttpStatus.OK);
+            User updatedUser = userService.updateUser(user);
+            return new ResponseEntity<>(updatedUser,HttpStatus.OK);
         } catch (RuntimeException e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @GetMapping
+    @GetMapping("/hello")
     public ResponseEntity<List<User>> getAllUsers() {
         try {
             List<User> users = userService.getAllUsers();
